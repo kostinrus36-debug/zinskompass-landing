@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZinsKompass — Unabhängiger Tagesgeld-Vergleich</title>
+<meta name="description" content="ZinsKompass vergleicht Tagesgeld- und Depotangebote in Deutschland unabhängig — ohne versteckte Gebühren.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4F8F5;
+    --panel:#FFFFFF;
+    --ink:#132420;
+    --ink-soft:#3B4E48;
+    --emerald:#1F7A5C;
+    --emerald-deep:#155C44;
+    --gold:#B8912F;
+    --line:#DCE8E1;
+    --muted:#6B7D76;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',-apple-system,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  h1,h2,.display{font-family:'Spectral',Georgia,serif}
+  a{color:var(--emerald)}
+  a:hover{color:var(--emerald-deep)}
+  table{border-collapse:collapse}
+  .wrap{max-width:1140px;margin:0 auto;padding-inline:32px}
+  @media (max-width:720px){.wrap{padding-inline:20px}}
+
+  .ribbon{background:var(--ink);color:var(--bg);text-align:center;padding:10px 16px;
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.04em}
+
+  header{display:flex;align-items:center;justify-content:space-between;padding:26px 0 0}
+  .logo{display:flex;align-items:center;gap:10px}
+  .logo-word{font-size:21px;font-weight:600;letter-spacing:-.01em}
+  .nav-tag{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--emerald);
+    border:1px solid var(--line);padding:6px 12px;border-radius:100px;background:var(--panel)}
+
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:60px 0 20px}
+  @media (max-width:880px){.hero{grid-template-columns:1fr;padding-top:36px}}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.06em;
+    color:var(--emerald-deep);text-transform:uppercase;margin:0 0 16px}
+  .hero h1{font-size:clamp(32px,4vw,48px);font-weight:600;line-height:1.1;margin:0 0 18px;text-wrap:balance}
+  .hero p{font-size:17.5px;color:var(--ink-soft);max-width:480px;margin:0}
+
+  /* compass illustration */
+  .compass{height:340px;display:flex;align-items:center;justify-content:center}
+  @media (max-width:880px){.compass{height:240px;margin-top:6px}}
+
+  /* comparison table */
+  .table-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    overflow:hidden;margin-top:44px}
+  .table-card table{width:100%;font-size:15px}
+  thead th{text-align:left;padding:15px 20px;font-weight:600;font-size:12px;color:var(--ink-soft);
+    text-transform:uppercase;letter-spacing:.04em;background:#EAF2ED}
+  tbody td{padding:17px 20px;border-top:1px solid #EDF3EF}
+  .bank-name{font-weight:600}
+  .rate{font-family:'IBM Plex Mono',monospace;color:var(--emerald-deep);font-weight:600;font-size:15.5px}
+  .cta-link{display:inline-block;padding:9px 18px;background:var(--emerald);color:#fff;
+    border-radius:7px;font-weight:600;font-size:13.5px;text-decoration:none;white-space:nowrap}
+  .cta-link:hover{background:var(--emerald-deep);color:#fff}
+  .placeholder-note{font-size:13px;color:var(--muted);margin-top:12px;max-width:640px}
+
+  .band{padding:68px 0;border-top:1px solid var(--line)}
+  .band.white{background:var(--panel)}
+  .section-head{text-align:center;margin-bottom:44px}
+  .section-head .eyebrow{text-align:center}
+  .section-head h2{font-size:30px;font-weight:600;margin:0}
+
+  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:960px;margin:0 auto}
+  @media (max-width:720px){.trust-grid{grid-template-columns:1fr}}
+  .trust-item{display:flex;flex-direction:column;gap:12px}
+  .trust-item h3{font-size:16px;font-weight:600;margin:0}
+  .trust-item p{font-size:14.5px;color:var(--ink-soft);margin:0}
+
+  details{border-bottom:1px solid var(--line);padding:18px 2px}
+  details summary{cursor:pointer;font-weight:600;font-size:16px;list-style:none;
+    display:flex;justify-content:space-between;align-items:center}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:'+';font-size:22px;color:var(--emerald);font-weight:400;transition:transform .15s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{font-size:15px;color:var(--ink-soft);margin:12px 0 0;max-width:640px}
+  .faq-wrap{max-width:680px;margin:0 auto}
+
+  footer{padding:40px 0 56px;text-align:center;color:var(--muted);font-size:13px}
+  footer div+div{margin-top:6px}
+</style>
+</head>
+<body>
+
+<div class="ribbon">TEST-VERSION — Zinssätze werden vor Live-Schaltung mit echten Anbieterdaten befüllt.</div>
+
+<div class="wrap">
+  <header>
+    <div class="logo">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+        <circle cx="15" cy="15" r="13" fill="#FFFFFF" stroke="#1F7A5C" stroke-width="1.6"/>
+        <path d="M15 8l3.6 8.4L11 16.2 15 8Z" fill="#1F7A5C"/>
+        <path d="M15 22l-3.6-8.4L19 13.8 15 22Z" fill="#B8912F"/>
+      </svg>
+      <span class="logo-word">ZinsKompass</span>
+    </div>
+    <span class="nav-tag">unabhängiger Vergleich · Deutschland</span>
+  </header>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Tagesgeld &amp; Depot</p>
+      <h1>Der ehrliche Tagesgeld-Vergleich für Deutschland</h1>
+      <p>Wir vergleichen Angebote unabhängig voneinander — ohne versteckte Gebühren,
+        ohne Werbeblabla. Finde in zwei Minuten das Angebot, das zu dir passt.</p>
+    </div>
+    <div class="compass" aria-hidden="true">
+      <svg width="280" height="280" viewBox="0 0 280 280" fill="none">
+        <circle cx="140" cy="140" r="108" fill="#FFFFFF" stroke="#DCE8E1" stroke-width="1.5"/>
+        <circle cx="140" cy="140" r="86" fill="none" stroke="#DCE8E1" stroke-width="1"/>
+        <g font-family="IBM Plex Mono" font-size="11" fill="#6B7D76">
+          <text x="136" y="42" >N</text>
+          <text x="136" y="246">S</text>
+          <text x="34" y="145">W</text>
+          <text x="238" y="145">O</text>
+        </g>
+        <line x1="140" y1="54" x2="140" y2="226" stroke="#EDF3EF" stroke-width="1"/>
+        <line x1="54" y1="140" x2="226" y2="140" stroke="#EDF3EF" stroke-width="1"/>
+        <g transform="rotate(28 140 140)">
+          <path d="M140 66 L152 140 L140 158 L128 140 Z" fill="#1F7A5C"/>
+          <path d="M140 214 L128 140 L140 122 L152 140 Z" fill="#B8912F"/>
+        </g>
+        <circle cx="140" cy="140" r="9" fill="#132420"/>
+        <circle cx="140" cy="140" r="3.2" fill="#F4F8F5"/>
+      </svg>
+    </div>
+  </section>
+
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr><th>Anbieter</th><th>Zins p.a.</th><th>Einlagensicherung</th><th></th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="bank-name">[ANBIETER 1 EINTRAGEN]</td>
+          <td class="rate">[X,XX %]</td>
+          <td>[Land / Einlagensicherung]</td>
+          <td><a class="cta-link" href="#">[LINK EINFÜGEN]</a></td>
+        </tr>
+        <tr>
+          <td class="bank-name">[ANBIETER 2 EINTRAGEN]</td>
+          <td class="rate">[X,XX %]</td>
+          <td>[Land / Einlagensicherung]</td>
+          <td><a class="cta-link" href="#">[LINK EINFÜGEN]</a></td>
+        </tr>
+        <tr>
+          <td class="bank-name">[ANBIETER 3 EINTRAGEN]</td>
+          <td class="rate">[X,XX %]</td>
+          <td>[Land / Einlagensicherung]</td>
+          <td><a class="cta-link" href="#">[LINK EINFÜGEN]</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="placeholder-note">Reale Zinssätze und Partnerlinks (z. B. über FinanceAds) werden vor dem Kampagnenstart eingetragen — hier stehen bewusst Platzhalter, keine erfundenen Zahlen.</p>
+</div>
+
+<div class="band white">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Vertrauen</p>
+      <h2>Warum ZinsKompass?</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1F7A5C" stroke-width="1.6"><path d="M12 21c4.5-2.5 7-6 7-10V6l-7-3-7 3v5c0 4 2.5 7.5 7 10Z" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Unabhängig</h3>
+        <p>Wir vergleichen nach Zins und Sicherheit — nicht danach, wer am meisten Provision zahlt.</p>
+      </div>
+      <div class="trust-item">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1F7A5C" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M7 13h4" stroke-linecap="round"/></svg>
+        <h3>Kostenlos</h3>
+        <p>Der Vergleich kostet dich nichts. Wir finanzieren uns über die Anbieter, nicht über dich.</p>
+      </div>
+      <div class="trust-item">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1F7A5C" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>In 2 Minuten</h3>
+        <p>Vergleichen, Anbieter auswählen, direkt zum Antrag — ohne Umwege.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="band">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Fragen</p>
+      <h2>Häufig gefragt</h2>
+    </div>
+    <div class="faq-wrap">
+      <details>
+        <summary>Wie verdient ZinsKompass Geld?</summary>
+        <p>Über eine Provision der Bank, wenn du über unseren Link ein Konto eröffnest. Der Zins für dich ändert sich dadurch nicht.</p>
+      </details>
+      <details>
+        <summary>Sind die Zinssätze aktuell?</summary>
+        <p>Auf dieser Testseite stehen bewusst Platzhalter. Reale, tagesaktuelle Zinssätze werden vor dem echten Start eingepflegt.</p>
+      </details>
+      <details>
+        <summary>Wer steckt hinter ZinsKompass?</summary>
+        <p>[TEAM-INFO ERGÄNZEN] — ein unabhängiges Team mit Sitz in Deutschland.</p>
+      </details>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>ZinsKompass · Test-Landingpage zur Marktvalidierung · keine Anlageberatung</div>
+    <div>Kontakt: [E-MAIL-ADRESSE EINTRAGEN] · Impressum: [ANGABEN ERGÄNZEN]</div>
+  </div>
+</footer>
+
+</body>
+</html>
